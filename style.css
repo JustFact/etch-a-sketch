@@ -5,3 +5,10 @@
   margin: 0;
 }
 
+.row {
+    display: flex;
+}
+
+.cell {
+    padding: 5px;
+}
