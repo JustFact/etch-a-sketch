@@ -5,10 +5,20 @@
   margin: 0;
 }
 
+body {
+  text-align: center;
+}
+
 .main-container {
   display: inline-block;
   border-right: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+}
+
+.set-ncell-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
 }
 
 .row {
