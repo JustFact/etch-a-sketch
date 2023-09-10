@@ -5,12 +5,19 @@
   margin: 0;
 }
 
+.main-container {
+  display: inline-block;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
 .row {
-    display: flex;
+  display: flex;
 }
 
 .cell {
-    width: 25px;
-    height: 25px;
-    border: 1px solid gray;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
 }
