@@ -1,5 +1,5 @@
 const canvasDimensions = 600;
-const numberOfCells = 20;
+let numberOfCells = 20;
 
 const mainContainer = document.querySelector('.main-container');
 mainContainer.addEventListener('mouseover', (event)=>{
@@ -19,6 +19,19 @@ setCellSize(canvasDimensions/numberOfCells);
 const gridRow = document.createElement('div');
 gridRow.classList.add('row')
 
+const nCells = document.querySelector('.set-ncell-btn');
+nCells.addEventListener('click',setNumberOfCells)
+function setNumberOfCells(){
+    let newCellCount = 0;
+    newCellCount = Number.parseInt(prompt('Enter Number of Cells'));
+    if(newCellCount&&newCellCount>100){
+        numberOfCells = 100;
+    }else if(newCellCount){
+        numberOfCells = newCellCount;
+    }else{
+        return;
+    }
+}
 
 for(let i = 1; i<=numberOfCells; i++){
     gridRow.appendChild(gridCell.cloneNode(true));
