@@ -1,4 +1,9 @@
 const mainContainer = document.querySelector('.main-container');
+mainContainer.addEventListener('mouseover', (event)=>{
+    if(event.target.classList.contains('cell')){
+        event.target.style.backgroundColor = 'purple'
+    }
+})
 
 const gridCell = document.createElement('div');
 gridCell.classList.add('cell')
@@ -13,6 +18,3 @@ for(let i = 1; i<=16; i++){
 for(let i = 1; i<=16; i++){
     mainContainer.appendChild(gridRow.cloneNode(true));
 }
-
-
-console.log(mainContainer)
