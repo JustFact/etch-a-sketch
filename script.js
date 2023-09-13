@@ -4,7 +4,7 @@ let numberOfCells = 16;
 let mainContainer = document.querySelector('.main-container');
 mainContainer.addEventListener('mouseover', (event)=>{
     if(event.target.classList.contains('cell')){
-        event.target.style.backgroundColor = 'purple'
+        event.target.style.backgroundColor = getRandomBrightRGB();
     }
 })
 
@@ -14,8 +14,8 @@ function setCellSize(cellSize){
     gridCell.style.width = `${cellSize}px`
     gridCell.style.height = `${cellSize}px`
 }
-setCellSize(canvasDimensions/numberOfCells);
 
+setCellSize(canvasDimensions/numberOfCells);
 const nCells = document.querySelector('.set-ncell-btn');
 nCells.addEventListener('click',setNumberOfCells)
 function setNumberOfCells(){
@@ -50,6 +50,27 @@ function cleanGrid(){
         }
         mainContainer.removeChild(mainContainer.firstChild);
     }
+}
+
+function getRandomBrightRGB(){
+    let R,G,B,makeZero;
+
+    //avoids shades of white/black/gray
+    do{
+        R = Number.parseInt(Math.random()*255);
+        G = Number.parseInt(Math.random()*255);
+        B = Number.parseInt(Math.random()*255);
+    }while(R==G && G==B && R==B)
+
+    //avoid dull colors
+    makeZero = Number.parseInt(Math.random()*3 + 1);
+    switch(makeZero){
+        case 1: R = 0; break;
+        case 2: G = 0; break;
+        case 3: B = 0; break;
+    }
+    
+    return `rgb(${R},${G},${B})`;
 }
 
 function updateGrid(){
